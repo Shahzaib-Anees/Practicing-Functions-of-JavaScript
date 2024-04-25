@@ -2,20 +2,27 @@
 
 let userInputString = prompt("Enter a String to check if it is Palidrome or not");
 let stringLength = userInputString.length;
+let flag = false;
 function stringPalidrome(userInputString) {
     for (var i = 0; i < stringLength / 2; i++) {
-        if (userInputString[i] === userInputString[stringLength - 1 - i]) {
-            document.write(`<div class="card">
-            <h4>Checking whether Input string is Palidrome or not</h4>
-            <span> Your Input String : ${userInputString}</span>
-            <span> The above entered string is Palidrome String</span>
-            </div>`);
-        } else {
+        if (userInputString[i] !== userInputString[(stringLength - 1) - i]) {
             document.write(`<div class="card">
             <h4>Checking whether Input string is Palidrome or not</h4>
             <span> Your Input String : ${userInputString}</span>
             <span> The above entered string is not a Palidrome String</span>
             </div>`);
+            flag = true
         }
+        return flag;
     }
+
+}
+
+stringPalidrome(userInputString);
+if(!flag){
+    document.write(`<div class="card">
+    <h4>Checking whether Input string is Palidrome or not</h4>
+    <span> Your Input String : ${userInputString}</span>
+    <span> The above entered string is a Palidrome String</span>
+    </div>`);
 }
